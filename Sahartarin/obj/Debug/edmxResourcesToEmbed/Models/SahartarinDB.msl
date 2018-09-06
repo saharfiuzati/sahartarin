@@ -1,0 +1,87 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="sahartarinDBModelStoreContainer" CdmEntityContainer="sahartarinDBO">
+    <EntitySetMapping Name="Categories">
+      <EntityTypeMapping TypeName="sahartarinDBModel.Category">
+        <MappingFragment StoreEntitySet="Category">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="CategoryName" ColumnName="CategoryName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Comments">
+      <EntityTypeMapping TypeName="sahartarinDBModel.Comment">
+        <MappingFragment StoreEntitySet="Comments">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Content" ColumnName="Content" />
+          <ScalarProperty Name="userid" ColumnName="userid" />
+          <ScalarProperty Name="linkid" ColumnName="linkid" />
+          <ScalarProperty Name="Time" ColumnName="Time" />
+          <ScalarProperty Name="Vote_sNumber" ColumnName="Vote'sNumber" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Links">
+      <EntityTypeMapping TypeName="sahartarinDBModel.Link">
+        <MappingFragment StoreEntitySet="Link">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="URL" ColumnName="URL" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
+          <ScalarProperty Name="SendingTime" ColumnName="SendingTime" />
+          <ScalarProperty Name="Popular_LinkID" ColumnName="Popular_LinkID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PopularLinks">
+      <EntityTypeMapping TypeName="sahartarinDBModel.PopularLink">
+        <MappingFragment StoreEntitySet="PopularLink">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="ImageP" ColumnName="ImageP" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tag_Link">
+      <EntityTypeMapping TypeName="sahartarinDBModel.Tag_Link">
+        <MappingFragment StoreEntitySet="Tag_Link">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="tagid" ColumnName="tagid" />
+          <ScalarProperty Name="linkid" ColumnName="linkid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tags">
+      <EntityTypeMapping TypeName="sahartarinDBModel.Tag">
+        <MappingFragment StoreEntitySet="Tags">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="TagName" ColumnName="TagName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Users">
+      <EntityTypeMapping TypeName="sahartarinDBModel.User">
+        <MappingFragment StoreEntitySet="User">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="WebSite" ColumnName="WebSite" />
+          <ScalarProperty Name="Country" ColumnName="Country" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Votes">
+      <EntityTypeMapping TypeName="sahartarinDBModel.Vote">
+        <MappingFragment StoreEntitySet="Votes">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Userid" ColumnName="Userid" />
+          <ScalarProperty Name="Linkid" ColumnName="Linkid" />
+          <ScalarProperty Name="IsPositive" ColumnName="IsPositive" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

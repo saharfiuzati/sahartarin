@@ -1,0 +1,10 @@
+c:\users\sahar\documents\visual studio 2010\Projects\Sahartarin\Sahartarin.Tests\obj\Debug\ResolveAssemblyReference.cache
+c:\users\sahar\documents\visual studio 2010\Projects\Sahartarin\Sahartarin.Tests\bin\Debug\Sahartarin.Tests.dll.config
+c:\users\sahar\documents\visual studio 2010\Projects\Sahartarin\Sahartarin.Tests\bin\Debug\Sahartarin.Tests.dll
+c:\users\sahar\documents\visual studio 2010\Projects\Sahartarin\Sahartarin.Tests\bin\Debug\Sahartarin.Tests.pdb
+c:\users\sahar\documents\visual studio 2010\Projects\Sahartarin\Sahartarin.Tests\bin\Debug\Sahartarin.dll
+c:\users\sahar\documents\visual studio 2010\Projects\Sahartarin\Sahartarin.Tests\bin\Debug\Sahartarin.pdb
+c:\users\sahar\documents\visual studio 2010\Projects\Sahartarin\Sahartarin.Tests\obj\Debug\Sahartarin.Tests.dll
+c:\users\sahar\documents\visual studio 2010\Projects\Sahartarin\Sahartarin.Tests\obj\Debug\Sahartarin.Tests.pdb
+C:\Users\Nini\Desktop\Sahartarin\Sahartarin.Tests\obj\Debug\Sahartarin.Tests.dll
+C:\Users\Nini\Desktop\Sahartarin\Sahartarin.Tests\obj\Debug\Sahartarin.Tests.pdb

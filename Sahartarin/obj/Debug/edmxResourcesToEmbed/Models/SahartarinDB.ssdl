@@ -1,0 +1,264 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="sahartarinDBModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+  <EntityContainer Name="sahartarinDBModelStoreContainer">
+    <EntitySet Name="Category" EntityType="sahartarinDBModel.Store.Category" store:Type="Tables" Schema="Sahartarin" />
+    <EntitySet Name="Comments" EntityType="sahartarinDBModel.Store.Comments" store:Type="Tables" store:Schema="Sahartarin" store:Name="Comments">
+      <DefiningQuery>SELECT 
+      [Comments].[ID] AS [ID], 
+      [Comments].[Content] AS [Content], 
+      [Comments].[userid] AS [userid], 
+      [Comments].[linkid] AS [linkid], 
+      [Comments].[Time] AS [Time], 
+      [Comments].[Vote'sNumber] AS [Vote'sNumber]
+      FROM [Sahartarin].[Comments] AS [Comments]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="Link" EntityType="sahartarinDBModel.Store.Link" store:Type="Tables" Schema="Sahartarin" />
+    <EntitySet Name="PopularLink" EntityType="sahartarinDBModel.Store.PopularLink" store:Type="Tables" Schema="Sahartarin" />
+    <EntitySet Name="Tag_Link" EntityType="sahartarinDBModel.Store.Tag_Link" store:Type="Tables" Schema="Sahartarin" />
+    <EntitySet Name="Tags" EntityType="sahartarinDBModel.Store.Tags" store:Type="Tables" Schema="Sahartarin" />
+    <EntitySet Name="User" EntityType="sahartarinDBModel.Store.User" store:Type="Tables" Schema="Sahartarin" />
+    <EntitySet Name="Votes" EntityType="sahartarinDBModel.Store.Votes" store:Type="Tables" Schema="Sahartarin" />
+    <AssociationSet Name="Comments-Link" Association="sahartarinDBModel.Store.Comments-Link">
+      <End Role="Link" EntitySet="Link" />
+      <End Role="Comments" EntitySet="Comments" />
+    </AssociationSet>
+    <AssociationSet Name="Comments-User" Association="sahartarinDBModel.Store.Comments-User">
+      <End Role="User" EntitySet="User" />
+      <End Role="Comments" EntitySet="Comments" />
+    </AssociationSet>
+    <AssociationSet Name="Link_Category" Association="sahartarinDBModel.Store.Link_Category">
+      <End Role="Category" EntitySet="Category" />
+      <End Role="Link" EntitySet="Link" />
+    </AssociationSet>
+    <AssociationSet Name="Link_User" Association="sahartarinDBModel.Store.Link_User">
+      <End Role="User" EntitySet="User" />
+      <End Role="Link" EntitySet="Link" />
+    </AssociationSet>
+    <AssociationSet Name="PopularLink-link" Association="sahartarinDBModel.Store.PopularLink-link">
+      <End Role="PopularLink" EntitySet="PopularLink" />
+      <End Role="Link" EntitySet="Link" />
+    </AssociationSet>
+    <AssociationSet Name="PopularLink-User" Association="sahartarinDBModel.Store.PopularLink-User">
+      <End Role="User" EntitySet="User" />
+      <End Role="PopularLink" EntitySet="PopularLink" />
+    </AssociationSet>
+    <AssociationSet Name="Tag_Link-Links" Association="sahartarinDBModel.Store.Tag_Link-Links">
+      <End Role="Link" EntitySet="Link" />
+      <End Role="Tag_Link" EntitySet="Tag_Link" />
+    </AssociationSet>
+    <AssociationSet Name="Tag_Link-Tags" Association="sahartarinDBModel.Store.Tag_Link-Tags">
+      <End Role="Tags" EntitySet="Tags" />
+      <End Role="Tag_Link" EntitySet="Tag_Link" />
+    </AssociationSet>
+    <AssociationSet Name="Vote-Link" Association="sahartarinDBModel.Store.Vote-Link">
+      <End Role="Link" EntitySet="Link" />
+      <End Role="Votes" EntitySet="Votes" />
+    </AssociationSet>
+    <AssociationSet Name="Vote-user" Association="sahartarinDBModel.Store.Vote-user">
+      <End Role="User" EntitySet="User" />
+      <End Role="Votes" EntitySet="Votes" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Category">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="CategoryName" Type="nvarchar" Nullable="false" MaxLength="50" />
+  </EntityType>
+  <!--Errors Found During Generation:
+      warning 6002: The table/view 'sahartarinDB.Sahartarin.Comments' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+  <EntityType Name="Comments">
+    <Key>
+      <PropertyRef Name="ID" />
+      <PropertyRef Name="Content" />
+      <PropertyRef Name="userid" />
+      <PropertyRef Name="linkid" />
+      <PropertyRef Name="Time" />
+      <PropertyRef Name="Vote'sNumber" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="Content" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="userid" Type="int" Nullable="false" />
+    <Property Name="linkid" Type="int" Nullable="false" />
+    <Property Name="Time" Type="datetime" Nullable="false" />
+    <Property Name="Vote'sNumber" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Link">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Title" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="Description" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="URL" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="UserID" Type="int" Nullable="false" />
+    <Property Name="CategoryID" Type="int" Nullable="false" />
+    <Property Name="SendingTime" Type="datetime" Nullable="false" />
+    <Property Name="Popular_LinkID" Type="int" />
+  </EntityType>
+  <EntityType Name="PopularLink">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Title" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="ImageP" Type="image" Nullable="false" />
+    <Property Name="Description" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="UserId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Tag_Link">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="tagid" Type="int" Nullable="false" />
+    <Property Name="linkid" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Tags">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="TagName" Type="nvarchar" Nullable="false" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="WebSite" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="Country" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="UserName" Type="nvarchar" Nullable="false" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Votes">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Userid" Type="int" Nullable="false" />
+    <Property Name="Linkid" Type="int" Nullable="false" />
+    <Property Name="IsPositive" Type="bit" Nullable="false" />
+  </EntityType>
+  <Association Name="Comments-Link">
+    <End Role="Link" Type="sahartarinDBModel.Store.Link" Multiplicity="1" />
+    <End Role="Comments" Type="sahartarinDBModel.Store.Comments" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Link">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Comments">
+        <PropertyRef Name="linkid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Comments-User">
+    <End Role="User" Type="sahartarinDBModel.Store.User" Multiplicity="1" />
+    <End Role="Comments" Type="sahartarinDBModel.Store.Comments" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Comments">
+        <PropertyRef Name="userid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Link_Category">
+    <End Role="Category" Type="sahartarinDBModel.Store.Category" Multiplicity="1" />
+    <End Role="Link" Type="sahartarinDBModel.Store.Link" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Category">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Link">
+        <PropertyRef Name="CategoryID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Link_User">
+    <End Role="User" Type="sahartarinDBModel.Store.User" Multiplicity="1" />
+    <End Role="Link" Type="sahartarinDBModel.Store.Link" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Link">
+        <PropertyRef Name="UserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="PopularLink-link">
+    <End Role="PopularLink" Type="sahartarinDBModel.Store.PopularLink" Multiplicity="0..1" />
+    <End Role="Link" Type="sahartarinDBModel.Store.Link" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PopularLink">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Link">
+        <PropertyRef Name="Popular_LinkID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="PopularLink-User">
+    <End Role="User" Type="sahartarinDBModel.Store.User" Multiplicity="1" />
+    <End Role="PopularLink" Type="sahartarinDBModel.Store.PopularLink" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="PopularLink">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Tag_Link-Links">
+    <End Role="Link" Type="sahartarinDBModel.Store.Link" Multiplicity="1" />
+    <End Role="Tag_Link" Type="sahartarinDBModel.Store.Tag_Link" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Link">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Tag_Link">
+        <PropertyRef Name="linkid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Tag_Link-Tags">
+    <End Role="Tags" Type="sahartarinDBModel.Store.Tags" Multiplicity="1" />
+    <End Role="Tag_Link" Type="sahartarinDBModel.Store.Tag_Link" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Tags">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Tag_Link">
+        <PropertyRef Name="tagid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Vote-Link">
+    <End Role="Link" Type="sahartarinDBModel.Store.Link" Multiplicity="1" />
+    <End Role="Votes" Type="sahartarinDBModel.Store.Votes" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Link">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Votes">
+        <PropertyRef Name="Linkid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Vote-user">
+    <End Role="User" Type="sahartarinDBModel.Store.User" Multiplicity="1" />
+    <End Role="Votes" Type="sahartarinDBModel.Store.Votes" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Votes">
+        <PropertyRef Name="Userid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

@@ -1,0 +1,5 @@
+c:\users\sahar\documents\visual studio 2010\Projects\Sahartarin\Sahartarin\obj\Debug\ResolveAssemblyReference.cache
+c:\users\sahar\documents\visual studio 2010\Projects\Sahartarin\Sahartarin\bin\Sahartarin.dll
+c:\users\sahar\documents\visual studio 2010\Projects\Sahartarin\Sahartarin\bin\Sahartarin.pdb
+c:\users\sahar\documents\visual studio 2010\Projects\Sahartarin\Sahartarin\obj\Debug\Sahartarin.dll
+c:\users\sahar\documents\visual studio 2010\Projects\Sahartarin\Sahartarin\obj\Debug\Sahartarin.pdb
